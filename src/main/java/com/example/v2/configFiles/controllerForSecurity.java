@@ -22,4 +22,6 @@ public class controllerForSecurity {
     public String mainAdminMenu() {
         return "<h2> Welcome to the main Admin menu only admins are allowed to enter</h2>";
     }
+
+
 }

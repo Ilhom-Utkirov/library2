@@ -10,4 +10,17 @@ public class MainController {
     public String getMainPage(){
         return "index";
     }
+
+
+    @RequestMapping({"/login.html","/login"})
+    public String getLoginPage(){
+        return "login";
+    }
+
+    @RequestMapping("/login-error")
+    public String getLoginErrorPage(){
+        return "login-error";
+    }
+
+
 }
