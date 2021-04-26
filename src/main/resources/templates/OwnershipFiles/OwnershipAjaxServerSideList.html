@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="fragments/scripts :: scripts"></th:block>
+    <title>Ownership Ajax Serverside List</title>
+</head>
+<body>
+
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+  <div th:replace="fragments/side-bar :: bar"></div>
+  <div class="page-wrapper">
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card overflow-hidden">
+            <div class="card-body border-bottom">
+              <h4 class="card-title mb-0">Ownership list</h4>
+            </div>
+
+            <div class="row justify-content-center bg-light p-3">
+              <div class="col-md-12">
+                <div class="card shadow-sm">
+                  <div class="p-4 text-center">
+                    <!--<div class="table-responsive" th:object="${ownershipPage}">-->
+                    <div class="table-responsive">
+                      <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                        <thead>
+                          <tr>
+                            <th>Id</th>
+                            <th>User Id</th>
+                            <th>book Id</th>
+                            <th>Date From</th>
+                            <th>Date To</th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer text-center">
+      All Rights Reserved by mr.Inspiration. Designed and Developed by <a
+            href="https://wrappixel.com">mr.Inspiration.</a>.
+    </footer>
+
+  </div>
+
+</div>
+
+
+<script>
+  $(document).ready(function () {
+    $("#zero_config").DataTable({
+      "processing": true,
+      "serverSide": true,
+      "pageLength" : 5,
+      "ajax"  : {
+        url : '/ownershipRest/getOwnerships'
+      },
+      "columns" : [
+          {data: 'id'},
+          {data: 'userId'},
+          {data: 'bookId'},
+          {data: 'dateFrom'},
+          {data: 'dateTo'},
+      ]
+    });
+
+  });
+</script>
+</body>
+
+</html>

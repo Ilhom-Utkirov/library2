@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <th:block th:replace="fragments/scripts :: scripts"></th:block>
+    <title>Save book</title>
+</head>
+<body>
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+    <div th:replace="fragments/side-bar :: bar"></div>
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Save User</h4>
+                          <!-- Form starts -->
+                            <form method="post" th:action="@{/getUsers/save}" th:object="${user}" >
+                                <div class="form-body">
+                                    <div class="form-group row">
+                                        <label class="col-md-2">User details </label>
+                                        <div class="col-md-10">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input id="name" placeholder="name" title="name" type="text" class="form-control"  required="required" th:field="*{name}"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input id="surname" placeholder="surname" title="surname" type="text" class="form-control"  required="required" th:field="*{surname}"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <input id="phoneNumber" placeholder="phone Number" title="phoneNumber" type="text" class="form-control"  required="required" th:field="*{phoneNumber}"/>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input id="address" placeholder="address" title="address" type="text" class="form-control"  required="required" th:field="*{address}"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              <div class="form-actions">
+                                <div class="text-right">
+                                  <button type="submit" class="btn btn-outline-primary">Save</button>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+</body>
+</html>

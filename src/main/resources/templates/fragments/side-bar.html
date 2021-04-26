@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div th:fragment="bar" th:remove="tag">
+
+
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div class="lds-pos"></div>
+                <div class="lds-pos"></div>
+            </div>
+        </div>
+       <!-- ============================================================== -->
+            <!-- Topbar header - style you can find in pages.scss -->
+            <!-- ============================================================== -->
+            <header class="topbar" data-navbarbg="skin6">
+                <nav class="navbar top-navbar navbar-expand-md">
+                    <div class="navbar-header" data-logobg="skin6">
+                        <!-- This is for the sidebar toggle which is visible on mobile only -->
+                        <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+                                class="ti-menu ti-close"></i></a>
+                        <!-- ============================================================== -->
+                        <!-- Logo -->
+                        <!-- ============================================================== -->
+                        <div class="navbar-brand">
+                            <!-- Logo icon -->
+                            <a href="/index">
+                                <b class="logo-icon">
+                                    <!-- Dark Logo icon -->
+                                    <img src="/static/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                                    <!-- Light Logo icon -->
+                                    <img src="/static/assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                                </b>
+                                <!--End Logo icon -->
+                                <!-- Logo text -->
+                                <span class="logo-text">
+                                <!-- dark Logo text -->
+                                <img src="/static/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                                    <!-- Light Logo text -->
+                                <img src="/static/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                            </span>
+                            </a>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- End Logo -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Toggle which is visible on mobile only -->
+                        <!-- ============================================================== -->
+                        <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="/index"
+                           data-toggle="collapse" data-target="#navbarSupportedContent"
+                           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
+                                class="ti-more"></i></a>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                        <!-- ============================================================== -->
+                        <!-- toggle and nav items -->
+                        <!-- ============================================================== -->
+                        <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
+                            <!-- ============================================================== -->
+                            <!-- create new -->
+                            <!-- ============================================================== -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index" role="button">
+                                    Main menu
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!-- ============================================================== -->
+            <!-- End Topbar header -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Left Sidebar - style you can find in sidebar.scss  -->
+            <!-- ============================================================== -->
+            <aside class="left-sidebar" data-sidebarbg="skin6">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar" data-sidebarbg="skin6">
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav">
+                            <!--
+                            <li class="nav-small-cap"><span class="hide-menu">Getting Started</span></li>
+                            <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="docs.html"
+                                                         aria-expanded="false"><i data-feather="bar-chart-2" class="feather-icon"></i>
+                                <span class="hide-menu">Introduction</span></a>
+                            </li>
+                            <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="docs-start.html"
+                                                         aria-expanded="false"><i data-feather="clipboard" class="feather-icon"></i>
+                                <span class="hide-menu">Gettings Started</span></a>
+                            </li>
+
+                            <li class="list-divider"></li>
+                            <li class="nav-small-cap"><span class="hide-menu">UI Components</span></li>
+                             -->
+                            <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                                         aria-expanded="false"><i data-feather="grid" class="feather-icon"></i><span
+                                    class="hide-menu">UserList
+                                </span></a>
+
+                                <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                    <li class="sidebar-item"><a href="/getUsers" class="sidebar-link"><span class="hide-menu"> Show all Users simple</span></a></li>
+                                    <li class="sidebar-item"><a href="/showAjax" class="sidebar-link"><span class="hide-menu"> Users Ajax Datatables</span></a></li>
+                                    <li class="sidebar-item"><a href="/listUsers" class="sidebar-link"><span class="hide-menu">Users Pagination Enabled</span></a></li>
+                                    <li class="sidebar-item"><a href="/getUsersPage" class="sidebar-link"><span class="hide-menu">ServersidePaginationAJax</span></a></li>
+                                    <li class="sidebar-item"><a href="/getUsers/getSaveUserPage" class="sidebar-link"><span class="hide-menu"> Save User </span></a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                                         aria-expanded="false"><i data-feather="edit" class="feather-icon"></i><span
+                                    class="hide-menu">Books
+                                </span></a>
+                                <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                    <li class="sidebar-item"><a href="/book/showAll" class="sidebar-link"><span class="hide-menu"> Show all Books</span></a></li>
+                                    <li class="sidebar-item"><a href="/book/listBooks" class="sidebar-link"><span class="hide-menu">Books Pagination</span></a></li>
+                                    <li class="sidebar-item"><a href="/book/showAjax" class="sidebar-link"><span class="hide-menu">Books Ajax version</span></a></li>
+                                    <li class="sidebar-item"><a href="/book/serverSideAjax" class="sidebar-link"><span class="hide-menu">Books ServerSide Ajax</span></a></li>
+                                    <li class="sidebar-item"><a href="/book/getSaveBookPage" class="sidebar-link"><span class="hide-menu"> Save Book </span></a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item"> <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                                                         aria-expanded="false"><i data-feather="edit" class="feather-icon"></i><span
+                                    class="hide-menu">Ownership
+                                </span></a>
+                                <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                    <li class="sidebar-item"><a href="/ownership/show" class="sidebar-link"><span class="hide-menu">Ownership Ajax</span></a></li>
+                                    <li class="sidebar-item"><a href="/ownership/serverSideList" class="sidebar-link"><span class="hide-menu">Ownership Ajax ServerSide</span></a></li>
+                                    <li class="sidebar-item"><a href="/ownership/showPaging" class="sidebar-link"><span class="hide-menu">Ownership Paginaion</span></a></li>
+                                    <li class="sidebar-item"><a href="/ownership/getSavePage" class="sidebar-link"><span class="hide-menu"> Order Book </span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- End Sidebar navigation -->
+                </div>
+                <!-- End Sidebar scroll-->
+            </aside>
+
+    </div>
+</body>
+</html>

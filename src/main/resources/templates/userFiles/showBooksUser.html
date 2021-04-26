@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+	<th:block th:replace="fragments/scripts :: scripts"></th:block>
+	<title>DataTable</title>
+</head>
+
+<body>
+<!--/*@thymesVar id="dtoList" type="com.example.sampleprojecttocheck.model.Book"*/-->
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+		<div th:replace="fragments/side-bar :: bar"></div>
+        <div class="page-wrapper">
+
+
+           <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card overflow-hidden">
+							<div class="card-body border-bottom">
+								<h4 class="card-title mb-0">Books of User</h4>
+							</div>
+
+							<div class="row justify-content-center bg-light p-3">
+								<div class="col-md-12">
+									<div class="card shadow-sm">
+										<div class="p-4 text-center">
+											<div class="table-responsive">
+			                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+
+													<tr>
+														<th>Id</th>
+														<th>Name</th>
+														<th>Author</th>
+														<th>ISBN</th>
+														<th>Description</th>
+														<th>Number</th>
+														<th>Edit</th>
+														<th>Delete</th>
+													</tr>
+													</thead>
+													<tbody>
+													<tr th:each="book: ${dtoList}">
+														<th th:text="${book.getBookId()}">Id</th>
+														<th th:text="${book.getName()}">Name</th>
+														<th th:text="${book.getAuthor()}">Surname</th>
+														<th th:text="${book.getiSBN()}">Phone Number</th>
+														<th th:text="${book.getDescription()}">Address</th>
+														<th th:text="${book.getNumber()}">Address</th>
+														<th> <a href="#" th:href="@{'/getUsers/deleteUserBook/'+ ${book.getUserId()} +'/'+ ${book.getBookId()}}" type="button" class="btn btn-outline-danger btn-rounded" ><i class="fas fa-trash"></i> Delete</a></th>
+													</tr>
+			                                    </table>
+			                                </div>
+										</div>	
+									</div>
+								</div>
+							</div>
+							<div class="px-4">
+								<h4 class="card-title mt-4">Init Code Here</h4>
+								<hr>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer text-center">
+                All Rights Reserved by mr.Inspiration. Designed and Developed by <a
+                    href="https://wrappixel.com">mr.Inspiration.</a>.
+            </footer>
+
+        </div>
+
+    </div>
+
+
+	<script>
+		$('#zero_config').DataTable();
+		hljs.initHighlightingOnLoad();
+	</script>
+</body>
+
+</html>
