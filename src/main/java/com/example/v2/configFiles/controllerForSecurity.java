@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class controllerForSecurity {
 
-    @GetMapping("/hello")
+   /* @GetMapping("/hello")
     public String mainMenu(){
         return "<h2> Welcome to the main menu everyone is allowed to enter</h2>";
-    }
+    }*/
 
     @GetMapping("/user")
     public String mainUserMenu() {
@@ -22,4 +22,8 @@ public class controllerForSecurity {
     public String mainAdminMenu() {
         return "<h2> Welcome to the main Admin menu only admins are allowed to enter</h2>";
     }
+
+
+
+
 }

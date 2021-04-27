@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Controller
+@RequestMapping("/user")
 public class StudentsController {
 
 
@@ -151,7 +152,7 @@ public class StudentsController {
     public String saveUser(User user) {
 
         userService.save(user);
-        return "redirect:/getUsers";
+        return "redirect:/user/getUsers";
     }
 
     /*For getting update page of user*/
@@ -175,7 +176,7 @@ public class StudentsController {
         }
 
         userService.save(user);
-        return "redirect:/getUsers";
+        return "redirect:/user/getUsers";
     }
 
     /* For deleting the user*/
@@ -185,7 +186,7 @@ public class StudentsController {
         //.orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
         userService.delete(user);
 
-        return "redirect:/getUsers";
+        return "redirect:/user/getUsers";
     }
 
 
@@ -233,7 +234,7 @@ public class StudentsController {
 
         //.orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
 
-        return "redirect:/getUsers";
+        return "redirect:/user/getUsers";
     }
 
 }
