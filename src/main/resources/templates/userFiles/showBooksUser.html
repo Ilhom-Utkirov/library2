@@ -47,7 +47,7 @@
 														<th th:text="${book.getiSBN()}">Phone Number</th>
 														<th th:text="${book.getDescription()}">Address</th>
 														<th th:text="${book.getNumber()}">Address</th>
-														<th> <a href="#" th:href="@{'/getUsers/deleteUserBook/'+ ${book.getUserId()} +'/'+ ${book.getBookId()}}" type="button" class="btn btn-outline-danger btn-rounded" ><i class="fas fa-trash"></i> Delete</a></th>
+														<th> <a href="#" th:href="@{'/user/getUsers/deleteUserBook/'+ ${book.getUserId()} +'/'+ ${book.getBookId()}}" type="button" class="btn btn-outline-danger btn-rounded" ><i class="fas fa-trash"></i> Delete</a></th>
 													</tr>
 			                                    </table>
 			                                </div>
