@@ -29,4 +29,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query(value = "SELECT * FROM book LIMIT ?,?", nativeQuery = true)
     List<Book> findBooksWithPage(int start, int length);
+
+
 }

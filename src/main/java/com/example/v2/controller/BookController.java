@@ -7,6 +7,7 @@ import com.example.v2.service.UserService;
 import jdk.nashorn.internal.runtime.linker.LinkerCallSite;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +23,7 @@ import java.util.stream.IntStream;
 
 @Controller
 @RequestMapping("/book")
+//@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")  //it doesnot work
 public class BookController {
 
 
@@ -34,6 +36,7 @@ public class BookController {
     }
 
     /* Show all books very simple form*/
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE','ROLE_STUDENT')")
     @RequestMapping("/showAll")
     public String showAllBooks(Model model) {
 
@@ -50,6 +53,7 @@ public class BookController {
     }
 
     /* Show all books Ajax version*/
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")
     @RequestMapping("/showAjax")
     public String showAllBooksPageable(Model model) {
 
@@ -84,6 +88,7 @@ public class BookController {
     }
 
     /* For showing the list of books Pageable enabled */
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")
     @RequestMapping(value = "/listBooks", method = RequestMethod.GET)
     public String listBooks(
        Model model,
@@ -116,6 +121,7 @@ public class BookController {
 
 
     /* get save Book page. Note sending new object */
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_ADMINTRAINEE')")
     @RequestMapping(value = "/getSaveBookPage", method = RequestMethod.GET)
     public String getSaveBookPage(Model model) {
 
@@ -133,6 +139,7 @@ public class BookController {
     }
 
     /*for getting update page of book*/
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_STUDENT')")
     @RequestMapping(value = "/getUpdatePage/{id}", method = RequestMethod.GET)
     public String getUpdateBookPage(@PathVariable(name = "id") long id, Model model) {
 

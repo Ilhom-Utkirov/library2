@@ -1,9 +1,11 @@
 package com.example.v2.controller;
 ;
+import com.example.v2.basicSecurity.auth.ApplicationUser;
 import com.example.v2.model.Ownership;
 import com.example.v2.service.OwnershipService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,11 +31,12 @@ public class OwnershipController {
 
     /*show list of ownerships*/
     @RequestMapping("/show")
-    public String getOwnershipPageShow(Model model) {
+    public String getOwnershipPageShow(@AuthenticationPrincipal ApplicationUser principal, Model model) {
 
         List<Ownership> ownerships = ownershipService.findAllByStatus(true);
+        model.addAttribute("user",principal);
         model.addAttribute("ownerships", ownerships);
-        return "OwnershipFiles/ownershipList";
+        return "OwnershipFiles/ownershiplist";
 
     }
 
@@ -136,7 +139,6 @@ public class OwnershipController {
                     o.getDateTo(),
             });
         }
-
 
         System.out.println("entered ajax list check : ok");
         result.put("data", convenientForJSONArray);

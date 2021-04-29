@@ -14,10 +14,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@Configuration
-@EnableWebSecurity
-public class WebSecurityWithAuthenticationManagerBuilder extends WebSecurityConfigurerAdapter {
-
+//@Configuration
+//@EnableWebSecurity
+public class WebSecurityWithAuthenticationManagerBuilder {//extends WebSecurityConfigurerAdapter {
+/*
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
@@ -32,6 +32,8 @@ public class WebSecurityWithAuthenticationManagerBuilder extends WebSecurityConf
 
     }
 
+ */
+/*
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
@@ -64,6 +66,8 @@ public class WebSecurityWithAuthenticationManagerBuilder extends WebSecurityConf
 
     }
 
+ */
+
 /*
     @Bean
     @Override
@@ -79,8 +83,11 @@ public class WebSecurityWithAuthenticationManagerBuilder extends WebSecurityConf
 
 */
 
+/*
 
     @Bean
     public PasswordEncoder encoder(){
         return NoOpPasswordEncoder.getInstance();}
+
+        */
 }
