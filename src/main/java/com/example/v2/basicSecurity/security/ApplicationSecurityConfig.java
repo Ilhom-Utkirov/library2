@@ -72,11 +72,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider(daoAuthenticationProvider());
-        auth.inMemoryAuthentication()
-                .withUser("user").password(passwordEncoder.encode("password")).roles("USER")
-                .and()
-                .withUser("admin").password(passwordEncoder.encode("password")).roles("USER", "ADMIN");
+        auth.authenticationProvider(daoAuthenticationProvider());
+//        auth.inMemoryAuthentication()
+//                .withUser("user").password(passwordEncoder.encode("password")).roles("USER")
+//                .and()
+//                .withUser("admin").password(passwordEncoder.encode("password")).roles("USER", "ADMIN");
 
 
     }
