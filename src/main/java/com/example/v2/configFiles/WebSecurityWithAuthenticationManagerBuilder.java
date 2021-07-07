@@ -70,7 +70,7 @@ public class WebSecurityWithAuthenticationManagerBuilder {//extends WebSecurityC
 
 /*
     @Bean
-    @Override
+    //@Override
     public UserDetailsService userDetailsService(){
         UserDetails user =
                 User.withDefaultPasswordEncoder()
@@ -80,8 +80,8 @@ public class WebSecurityWithAuthenticationManagerBuilder {//extends WebSecurityC
                         .build();
         return new InMemoryUserDetailsManager(user);
     }
-
 */
+
 
 /*
 

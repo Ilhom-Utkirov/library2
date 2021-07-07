@@ -165,6 +165,7 @@ public class BookController {
     }
 
     @GetMapping("/delete/{id}")
+
     public String deleteBook(@PathVariable(name = "id") long id, Model model) {
 
         Book book;

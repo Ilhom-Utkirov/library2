@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -58,6 +59,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .tokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(21))
                 .key("somethingverysecured")
                 .rememberMeParameter("remember-me")
+                //.userDetailsService(applicationUserService)
                 .and()
                 .logout()
                 .logoutUrl("/logout")
@@ -70,8 +72,20 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(daoAuthenticationProvider());
+//        auth.authenticationProvider(daoAuthenticationProvider());
+        auth.inMemoryAuthentication()
+                .withUser("user").password(passwordEncoder.encode("password")).roles("USER")
+                .and()
+                .withUser("admin").password(passwordEncoder.encode("password")).roles("USER", "ADMIN");
+
+
     }
+
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+
 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
