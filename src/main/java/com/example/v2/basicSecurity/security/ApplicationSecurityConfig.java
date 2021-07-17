@@ -67,7 +67,11 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .clearAuthentication(true)
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID", "remember-me")
-                .logoutSuccessUrl("/login");
+                .logoutSuccessUrl("/login")
+                .and()
+        .exceptionHandling()
+        .accessDeniedPage("/errors/403");
+
     }
 
     @Override
